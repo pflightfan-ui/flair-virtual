@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flair Virtual — A Virtual Airline for Flight Simulation</title>
+<meta name="description" content="Flair Virtual is an independent flight simulation community inspired by Flair Airlines' real-world network. Fly the routes, climb the ranks, join the crew.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@700;800&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="tail">✈</span>
+      <span>Flair Virtual<br><small>Virtual Airline Community</small></span>
+    </a>
+    <nav class="nav-links" data-nav-links>
+      <a href="index.html" class="active">Home</a>
+      <a href="pages/fleet.html">Fleet</a>
+      <a href="pages/routes.html">Route Network</a>
+      <a href="pages/ranks-awards.html">Ranks &amp; Awards</a>
+      <a href="pages/community.html">Community</a>
+      <a href="pages/portal.html">Pilot Portal</a>
+      <a href="pages/about.html">About</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Toggle dark mode"></button>
+      <a href="pages/portal.html" class="btn btn-outline btn-sm hide-mobile">Log In</a>
+      <a href="pages/portal.html" class="btn btn-primary btn-sm">Join Flair Virtual</a>
+      <button class="nav-burger" data-nav-burger aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section style="padding-top:0;">
+    <div style="position:relative; min-height:92vh; display:flex; align-items:flex-end; overflow:hidden;">
+      <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2400&auto=format&fit=crop"
+           alt=""
+           style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;">
+      <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(11,11,12,0.35) 0%, rgba(11,11,12,0.15) 40%, rgba(11,11,12,0.92) 100%); z-index:1;"></div>
+
+      <div class="container" style="position:relative; z-index:2; padding-bottom:64px; color:#fff;">
+        <div class="grid grid-2" style="align-items:end; gap:40px;">
+          <div>
+            <span class="eyebrow" style="color:var(--marigold);">VATSIM · IVAO · MSFS · X-PLANE FRIENDLY</span>
+            <h1 style="color:#fff; font-size:clamp(2.6rem, 6vw, 4.6rem); max-width:720px;">Fly the network.<br>Earn the rank.</h1>
+            <p style="color:rgba(247,246,242,0.85); font-size:1.15rem; max-width:520px; margin-bottom:28px;">
+              Flair Virtual is an independent flight sim community inspired by Flair Airlines' real-world routes —
+              built for pilots who want realistic schedules, honest ACARS tracking, and a crew worth flying with.
+            </p>
+            <div class="flex gap-12" style="flex-wrap:wrap;">
+              <a href="pages/portal.html" class="btn btn-primary">Join Flair Virtual</a>
+              <a href="pages/routes.html" class="btn btn-outline" style="border-color:rgba(247,246,242,0.35); color:#fff;">Explore the Route Map</a>
+            </div>
+          </div>
+
+          <!-- Signature departure board -->
+          <div class="board reveal">
+            <div class="board-title">
+              <span>YYC · Live Departures</span>
+              <span class="pill pill-green"><span class="pill-dot"></span>247 online</span>
+            </div>
+            <div class="board-row">
+              <span class="flap col-time">18:05</span>
+              <span class="flap">Calgary → Toronto</span>
+              <span class="flap mono">F8221</span>
+              <span class="flap status-board status-boarding">BOARDING</span>
+              <span class="flap col-gate">GATE A12</span>
+            </div>
+            <div class="board-row">
+              <span class="flap col-time">18:20</span>
+              <span class="flap">Calgary → Edmonton</span>
+              <span class="flap mono">F8402</span>
+              <span class="flap status-board status-ontime">ON TIME</span>
+              <span class="flap col-gate">GATE B03</span>
+            </div>
+            <div class="board-row">
+              <span class="flap col-time">18:35</span>
+              <span class="flap">Calgary → Kelowna</span>
+              <span class="flap mono">F8115</span>
+              <span class="flap status-board status-ontime">ON TIME</span>
+              <span class="flap col-gate">GATE A04</span>
+            </div>
+            <div class="board-row">
+              <span class="flap col-time">19:10</span>
+              <span class="flap">Calgary → Las Vegas</span>
+              <span class="flap mono">F8760</span>
+              <span class="flap status-board status-delayed">DELAYED</span>
+              <span class="flap col-gate">GATE C09</span>
+            </div>
+            <div class="board-row">
+              <span class="flap col-time">19:25</span>
+              <span class="flap">Calgary → Winnipeg</span>
+              <span class="flap mono">F8331</span>
+              <span class="flap status-board status-ontime">ON TIME</span>
+              <span class="flap col-gate">GATE A07</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LIVE STATS ============ -->
+  <section style="padding:56px 0; background:var(--ink);">
+    <div class="container">
+      <div class="grid grid-4" style="text-align:center;">
+        <div class="reveal">
+          <div class="mono" style="font-size:2.4rem; font-weight:700; color:var(--marigold);"><span data-count="4128">0</span></div>
+          <div style="color:rgba(247,246,242,0.65); font-size:0.85rem; margin-top:6px;">Active Pilots</div>
+        </div>
+        <div class="reveal">
+          <div class="mono" style="font-size:2.4rem; font-weight:700; color:var(--marigold);"><span data-count="182430">0</span></div>
+          <div style="color:rgba(247,246,242,0.65); font-size:0.85rem; margin-top:6px;">Flights Completed</div>
+        </div>
+        <div class="reveal">
+          <div class="mono" style="font-size:2.4rem; font-weight:700; color:var(--marigold);"><span data-count="612905">0</span></div>
+          <div style="color:rgba(247,246,242,0.65); font-size:0.85rem; margin-top:6px;">Flight Hours Logged</div>
+        </div>
+        <div class="reveal">
+          <div class="mono" style="font-size:2.4rem; font-weight:700; color:#5fd6b8;"><span data-count="247">0</span></div>
+          <div style="color:rgba(247,246,242,0.65); font-size:0.85rem; margin-top:6px;">Pilots Online Now</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LATEST NEWS ============ -->
+  <section>
+    <div class="container">
+      <div class="section-head reveal flex-between" style="align-items:flex-end;">
+        <div>
+          <span class="eyebrow">Newsroom</span>
+          <h2>Latest from Flair Virtual</h2>
+        </div>
+        <a href="pages/community.html" class="btn btn-outline btn-sm hide-mobile">All News</a>
+      </div>
+      <div class="grid grid-3">
+        <article class="card reveal" style="overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1200&auto=format&fit=crop" alt="Aircraft on approach at dusk" style="height:190px; object-fit:cover;">
+          <div style="padding:22px;">
+            <span class="pill pill-yellow">Fleet</span>
+            <h3 style="font-size:1.15rem; margin-top:12px;">Boeing 737 MAX 8 joins the virtual fleet</h3>
+            <p style="color:var(--text-dim); font-size:0.92rem;">Three MAX 8 liveries are now available for booking across our transcontinental routes.</p>
+            <span class="mono" style="font-size:0.78rem; color:var(--text-faint);">JUL 24, 2026</span>
+          </div>
+        </article>
+        <article class="card reveal" style="overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?q=80&w=1200&auto=format&fit=crop" alt="Sunset over airport tarmac" style="height:190px; object-fit:cover;">
+          <div style="padding:22px;">
+            <span class="pill pill-green">Events</span>
+            <h3 style="font-size:1.15rem; margin-top:12px;">Group Flight: YYC–YEG Friday Night Rush</h3>
+            <p style="color:var(--text-dim); font-size:0.92rem;">Join 60+ pilots for a coordinated evening push on VATSIM with live ATC.</p>
+            <span class="mono" style="font-size:0.78rem; color:var(--text-faint);">JUL 21, 2026</span>
+          </div>
+        </article>
+        <article class="card reveal" style="overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1521727857535-28d2047d3b9d?q=80&w=1200&auto=format&fit=crop" alt="Airport terminal interior" style="height:190px; object-fit:cover;">
+          <div style="padding:22px;">
+            <span class="pill pill-yellow">Ops</span>
+            <h3 style="font-size:1.15rem; margin-top:12px;">Winter 2026 schedule now open for bidding</h3>
+            <p style="color:var(--text-dim); font-size:0.92rem;">New routes to Puerto Vallarta and Cancun added for the seasonal sun network.</p>
+            <span class="mono" style="font-size:0.78rem; color:var(--text-faint);">JUL 15, 2026</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED DESTINATIONS ============ -->
+  <section style="background:var(--paper-dim);">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Where to fly</span>
+        <h2>Featured destinations</h2>
+        <p>A sample of the network — explore the full interactive route map for schedules, distances, and frequency.</p>
+      </div>
+      <div class="grid grid-4">
+        <div class="card reveal" style="overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?q=80&w=900&auto=format&fit=crop" alt="Toronto skyline" style="height:150px; object-fit:cover;">
+          <div style="padding:16px;">
+            <div class="mono" style="font-size:0.8rem; color:var(--runway); font-weight:700;">YYZ</div>
+            <div style="font-weight:700;">Toronto Pearson</div>
+          </div>
+        </div>
+        <div class="card reveal" style="overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1605833556294-ea5c7a74f57d?q=80&w=900&auto=format&fit=crop" alt="Las Vegas strip at night" style="height:150px; object-fit:cover;">
+          <div style="padding:16px;">
+            <div class="mono" style="font-size:0.8rem; color:var(--runway); font-weight:700;">LAS</div>
+            <div style="font-weight:700;">Las Vegas Harry Reid</div>
+          </div>
+        </div>
+        <div class="card reveal" style="overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?q=80&w=900&auto=format&fit=crop" alt="Vancouver harbor" style="height:150px; object-fit:cover;">
+          <div style="padding:16px;">
+            <div class="mono" style="font-size:0.8rem; color:var(--runway); font-weight:700;">YVR</div>
+            <div style="font-weight:700;">Vancouver Intl.</div>
+          </div>
+        </div>
+        <div class="card reveal" style="overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1512813759303-777d75c14c2f?q=80&w=900&auto=format&fit=crop" alt="Puerto Vallarta coastline" style="height:150px; object-fit:cover;">
+          <div style="padding:16px;">
+            <div class="mono" style="font-size:0.8rem; color:var(--runway); font-weight:700;">PVR</div>
+            <div style="font-weight:700;">Puerto Vallarta</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AIRPORT OF THE MONTH ============ -->
+  <section>
+    <div class="container">
+      <div class="card reveal" style="overflow:hidden; display:grid; grid-template-columns:1fr 1fr;">
+        <img src="https://images.unsplash.com/photo-1583531352515-8884af319dc1?q=80&w=1200&auto=format&fit=crop" alt="Aerial view of Kelowna International Airport region" style="height:100%; min-height:340px; object-fit:cover;">
+        <div style="padding:44px;">
+          <span class="eyebrow">Airport of the Month — August</span>
+          <h2 style="font-size:1.9rem;">Kelowna Intl. (YLW)</h2>
+          <p style="color:var(--text-dim);">
+            Tucked in the Okanagan Valley, YLW is one of the network's most scenic short-haul destinations —
+            mountain approaches, a single runway, and a summer rush of vacationers flying in from across Western Canada.
+          </p>
+          <ul style="color:var(--text-dim); font-size:0.92rem; padding-left:18px; margin-bottom:24px;">
+            <li>Opened in 1946 as a wartime training airfield</li>
+            <li>Runway 16/34, elevation 1,401 ft</li>
+            <li>Busiest Flair Virtual route this month: YYC–YLW</li>
+          </ul>
+          <div class="flex gap-12" style="flex-wrap:wrap;">
+            <a href="pages/community.html" class="btn btn-primary btn-sm">View Pilot Challenge</a>
+            <a href="pages/routes.html" class="btn btn-outline btn-sm">See Routes to YLW</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FLEET SHOWCASE ============ -->
+  <section style="background:var(--ink); color:#fff;">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" style="color:var(--marigold);">The Fleet</span>
+        <h2 style="color:#fff;">Four aircraft. One network.</h2>
+      </div>
+      <div class="grid grid-4">
+        <div class="reveal" style="text-align:center;">
+          <img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?q=80&w=900&auto=format&fit=crop" alt="Boeing 737-800 aircraft" style="border-radius:12px; height:140px; object-fit:cover; margin-bottom:14px;">
+          <div style="font-weight:700;">737-800</div>
+          <div class="mono" style="font-size:0.78rem; color:rgba(247,246,242,0.55);">189 SEATS</div>
+        </div>
+        <div class="reveal" style="text-align:center;">
+          <img src="https://images.unsplash.com/photo-1569629743817-70d1db700ed6?q=80&w=900&auto=format&fit=crop" alt="Boeing 737 MAX 8 aircraft" style="border-radius:12px; height:140px; object-fit:cover; margin-bottom:14px;">
+          <div style="font-weight:700;">737 MAX 8</div>
+          <div class="mono" style="font-size:0.78rem; color:rgba(247,246,242,0.55);">184 SEATS</div>
+        </div>
+        <div class="reveal" style="text-align:center;">
+          <img src="https://images.unsplash.com/photo-1559492528-461533abc736?q=80&w=900&auto=format&fit=crop" alt="Regional jet aircraft" style="border-radius:12px; height:140px; object-fit:cover; margin-bottom:14px;">
+          <div style="font-weight:700;">737 MAX 200</div>
+          <div class="mono" style="font-size:0.78rem; color:rgba(247,246,242,0.55);">200 SEATS</div>
+        </div>
+        <div class="reveal" style="text-align:center;">
+          <img src="https://images.unsplash.com/photo-1521727857535-28d2047d3b9d?q=80&w=900&auto=format&fit=crop" alt="Aircraft cabin interior" style="border-radius:12px; height:140px; object-fit:cover; margin-bottom:14px;">
+          <div style="font-weight:700;">737-700</div>
+          <div class="mono" style="font-size:0.78rem; color:rgba(247,246,242,0.55);">148 SEATS</div>
+        </div>
+      </div>
+      <div class="text-center reveal" style="margin-top:36px;">
+        <a href="pages/fleet.html" class="btn btn-primary">View Full Fleet Specs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ UPCOMING EVENTS + DISCORD ============ -->
+  <section>
+    <div class="container grid grid-2">
+      <div class="reveal">
+        <span class="eyebrow">On the calendar</span>
+        <h2>Upcoming events</h2>
+        <div class="card" style="padding:8px; margin-top:20px;">
+          <div class="flex-between" style="padding:16px; border-bottom:1px solid var(--line-soft);">
+            <div>
+              <div style="font-weight:700;">Friday Night Rush — YYC to YEG</div>
+              <div class="mono" style="font-size:0.8rem; color:var(--text-faint);">AUG 1 · 18:00 MDT</div>
+            </div>
+            <span class="pill pill-green">Group Flight</span>
+          </div>
+          <div class="flex-between" style="padding:16px; border-bottom:1px solid var(--line-soft);">
+            <div>
+              <div style="font-weight:700;">Cross-Canada Fun Run</div>
+              <div class="mono" style="font-size:0.8rem; color:var(--text-faint);">AUG 9 · 15:00 MDT</div>
+            </div>
+            <span class="pill pill-yellow">Challenge</span>
+          </div>
+          <div class="flex-between" style="padding:16px;">
+            <div>
+              <div style="font-weight:700;">New Pilot Orientation Livestream</div>
+              <div class="mono" style="font-size:0.8rem; color:var(--text-faint);">AUG 14 · 19:00 MDT</div>
+            </div>
+            <span class="pill pill-green">Training</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <span class="eyebrow">Community</span>
+        <h2>Discord status</h2>
+        <div class="card" style="padding:28px;">
+          <div class="flex-between">
+            <div class="flex gap-12" style="align-items:center;">
+              <div style="width:48px; height:48px; border-radius:12px; background:#5865F2; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.4rem;">◈</div>
+              <div>
+                <div style="font-weight:700;">Flair Virtual Discord</div>
+                <div class="mono" style="font-size:0.8rem; color:var(--text-faint);">1,842 members</div>
+              </div>
+            </div>
+            <span class="pill pill-green"><span class="pill-dot"></span>612 online</span>
+          </div>
+          <p style="color:var(--text-dim); font-size:0.92rem; margin:20px 0;">
+            ATC coordination, ACARS support, livery releases, and a genuinely friendly crew room —
+            it's where the network actually happens.
+          </p>
+          <a href="pages/community.html" class="btn btn-dark btn-block">Join the Discord</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><span class="tail">✈</span> Flair Virtual</div>
+        <p>An independent flight simulation community flying routes inspired by Flair Airlines' real-world network.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Discord">◈</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+      <div>
+        <h4>Fly</h4>
+        <a href="pages/fleet.html">Fleet</a>
+        <a href="pages/routes.html">Route Network</a>
+        <a href="pages/ranks-awards.html">Ranks &amp; Awards</a>
+        <a href="pages/portal.html">Flight Booking</a>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <a href="pages/community.html">Events Calendar</a>
+        <a href="pages/community.html">Leaderboards</a>
+        <a href="pages/community.html">Screenshot Gallery</a>
+        <a href="pages/community.html">Staff Directory</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="pages/about.html">About Flair Virtual</a>
+        <a href="pages/portal.html">Pilot Portal</a>
+        <a href="#">Knowledge Base</a>
+        <a href="#">Contact / Tickets</a>
+      </div>
+    </div>
+    <p class="footer-disclaimer">
+      <strong>Disclaimer:</strong> This is an independent virtual airline created exclusively for flight simulation and
+      entertainment purposes. It is not affiliated with, endorsed by, operated by, or representative of Flair Airlines'
+      commercial operations. Any Flair Airlines branding, logos, trademarks, or other intellectual property displayed on
+      this website are used only with authorization from their respective owner where applicable. All trademarks and
+      intellectual property remain the property of their respective owners.
+    </p>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> Flair Virtual. Not for real-world flight operations.</span>
+      <span>Built for VATSIM &amp; IVAO</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

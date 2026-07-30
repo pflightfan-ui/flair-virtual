@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pilot Portal — Flair Virtual</title>
+<meta name="description" content="Log in or join Flair Virtual — access your pilot dashboard, flight booking, ACARS tracking, logbook, and rank progression.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@700;800&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .auth-tabs { display: flex; gap: 4px; background: var(--paper-dim); border-radius: 999px; padding: 4px; margin-bottom: 28px; }
+  .auth-tab { flex: 1; text-align: center; padding: 10px; border-radius: 999px; font-weight: 700; font-size: 0.9rem; cursor: pointer; color: var(--text-dim); }
+  .auth-tab.active { background: var(--ink); color: #fff; }
+  html[data-theme="dark"] .auth-tab.active { background: var(--marigold); color: var(--ink); }
+  .field { margin-bottom: 16px; }
+  .field label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-dim); }
+  .field input, .field select { width: 100%; }
+  .demo-note {
+    font-size: 0.78rem; color: var(--text-faint); text-align: center; margin-top: 14px;
+  }
+  .id-card {
+    background: linear-gradient(135deg, var(--ink), #1c2b28);
+    border-radius: 16px; padding: 26px; color: #fff; position: relative; overflow: hidden;
+  }
+  .id-card::after {
+    content: "✈"; position: absolute; right: -20px; bottom: -30px; font-size: 8rem; color: rgba(255,199,44,0.08);
+  }
+  .dash-stat { padding: 18px; }
+  .dash-stat .num { font-family:'IBM Plex Mono', monospace; font-size:1.6rem; font-weight:700; color: var(--runway); }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">
+      <span class="tail">✈</span>
+      <span>Flair Virtual<br><small>Virtual Airline Community</small></span>
+    </a>
+    <nav class="nav-links" data-nav-links>
+      <a href="../index.html">Home</a>
+      <a href="fleet.html">Fleet</a>
+      <a href="routes.html">Route Network</a>
+      <a href="ranks-awards.html">Ranks &amp; Awards</a>
+      <a href="community.html">Community</a>
+      <a href="portal.html">Pilot Portal</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Toggle dark mode"></button>
+      <button class="nav-burger" data-nav-burger aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-hero" style="padding-bottom:0;">
+    <div class="container">
+      <span class="eyebrow">Pilot Portal</span>
+      <h1>Your cockpit for everything Flair Virtual</h1>
+      <p>Log in to book flights, track ACARS data, watch your rank progress, and manage your pilot profile.</p>
+    </div>
+  </section>
+
+  <!-- LOGIN / REGISTER -->
+  <section>
+    <div class="container" style="max-width:460px;">
+      <div class="card reveal" style="padding:32px;">
+        <div class="auth-tabs">
+          <div class="auth-tab active" data-auth="login">Log In</div>
+          <div class="auth-tab" data-auth="register">Register</div>
+        </div>
+
+        <form id="login-form" onsubmit="return false;">
+          <div class="field">
+            <label for="login-email">Email or pilot ID</label>
+            <input type="text" id="login-email" class="tag-input" placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label for="login-pass">Password</label>
+            <input type="password" id="login-pass" class="tag-input" placeholder="••••••••">
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Log In</button>
+          <p class="demo-note">This is a front-end preview — authentication isn't connected yet.</p>
+        </form>
+
+        <form id="register-form" onsubmit="return false;" style="display:none;">
+          <div class="field">
+            <label for="reg-name">Full name</label>
+            <input type="text" id="reg-name" class="tag-input" placeholder="Jordan Alderman">
+          </div>
+          <div class="field">
+            <label for="reg-email">Email</label>
+            <input type="email" id="reg-email" class="tag-input" placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label for="reg-home">Preferred home hub</label>
+            <select id="reg-home" class="tag-input">
+              <option>YYC — Calgary</option>
+              <option>YEG — Edmonton</option>
+              <option>YWG — Winnipeg</option>
+              <option>YYZ — Toronto</option>
+              <option>YHZ — Halifax</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="reg-pass">Password</label>
+            <input type="password" id="reg-pass" class="tag-input" placeholder="Create a password">
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Create Pilot Account</button>
+          <p class="demo-note">This is a front-end preview — registration isn't connected yet.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- DASHBOARD PREVIEW -->
+  <section style="background:var(--paper-dim);">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Preview</span>
+        <h2>What your dashboard looks like</h2>
+        <p>Sample data shown below — your real dashboard populates from ACARS once you're logged in and flying.</p>
+      </div>
+
+      <div class="grid grid-2 reveal">
+        <div class="id-card">
+          <div class="mono" style="font-size:0.72rem; letter-spacing:0.1em; color:var(--marigold); text-transform:uppercase;">Virtual Pilot ID</div>
+          <h3 style="color:#fff; font-size:1.5rem; margin:10px 0 4px;">Jordan Alderman</h3>
+          <div class="mono" style="font-size:0.85rem; color:rgba(247,246,242,0.6);">FV-10482 · Senior Captain · Home: YYC</div>
+          <div class="flex" style="margin-top:24px; gap:32px;">
+            <div><div class="mono" style="font-size:1.3rem; font-weight:700; color:#fff;">742.3</div><div style="font-size:0.75rem; color:rgba(247,246,242,0.55);">Hours</div></div>
+            <div><div class="mono" style="font-size:1.3rem; font-weight:700; color:#fff;">318</div><div style="font-size:0.75rem; color:rgba(247,246,242,0.55);">Flights</div></div>
+            <div><div class="mono" style="font-size:1.3rem; font-weight:700; color:#fff;">4</div><div style="font-size:0.75rem; color:rgba(247,246,242,0.55);">Awards</div></div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:24px;">
+          <div class="flex-between" style="margin-bottom:10px;">
+            <h3 style="font-size:1.05rem;">Rank Progression</h3>
+            <span class="mono" style="font-size:0.78rem; color:var(--text-faint);">Senior Captain → Training Captain</span>
+          </div>
+          <div style="background:var(--paper-dim); border-radius:8px; height:12px; overflow:hidden; margin-bottom:8px;">
+            <div style="width:62%; height:100%; background:var(--marigold);"></div>
+          </div>
+          <div class="mono" style="font-size:0.78rem; color:var(--text-faint);">742 / 1,200 hours to next rank</div>
+        </div>
+      </div>
+
+      <div class="grid grid-4" style="margin-top:24px;">
+        <div class="card dash-stat reveal"><div class="num">318</div><div style="color:var(--text-dim); font-size:0.85rem;">Flights Logged</div></div>
+        <div class="card dash-stat reveal"><div class="num">742.3</div><div style="color:var(--text-dim); font-size:0.85rem;">Total Hours</div></div>
+        <div class="card dash-stat reveal"><div class="num">4</div><div style="color:var(--text-dim); font-size:0.85rem;">Awards Earned</div></div>
+        <div class="card dash-stat reveal"><div class="num">28.4k</div><div style="color:var(--text-dim); font-size:0.85rem;">Miles This Month</div></div>
+      </div>
+
+      <div class="card reveal table-wrap" style="margin-top:24px;">
+        <div style="padding:18px 18px 0;"><h3 style="font-size:1.05rem;">Recent flight history</h3></div>
+        <table class="data">
+          <thead><tr><th>Flight</th><th>Route</th><th>Aircraft</th><th>Date</th><th>Duration</th><th>Landing</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">FV822</td><td>YYC → YYZ</td><td>737-800</td><td class="mono">JUL 27</td><td class="mono">3h 22m</td><td><span class="pill pill-green">-142 fpm</span></td></tr>
+            <tr><td class="mono">FV114</td><td>YYZ → YYC</td><td>737-800</td><td class="mono">JUL 25</td><td class="mono">3h 40m</td><td><span class="pill pill-yellow">-310 fpm</span></td></tr>
+            <tr><td class="mono">FV409</td><td>YYC → YLW</td><td>737-700</td><td class="mono">JUL 22</td><td class="mono">0h 54m</td><td><span class="pill pill-green">-165 fpm</span></td></tr>
+            <tr><td class="mono">FV760</td><td>YYC → LAS</td><td>737 MAX 8</td><td class="mono">JUL 19</td><td class="mono">2h 18m</td><td><span class="pill pill-green">-128 fpm</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid grid-3" style="margin-top:24px;">
+        <div class="card reveal" style="padding:22px;">
+          <h3 style="font-size:1rem;">Book a Flight</h3>
+          <p style="color:var(--text-dim); font-size:0.88rem;">Search the schedule and reserve your next sector.</p>
+          <a href="routes.html" class="btn btn-outline btn-sm btn-block" style="margin-top:8px;">Open Route Network</a>
+        </div>
+        <div class="card reveal" style="padding:22px;">
+          <h3 style="font-size:1rem;">Qualification Tracking</h3>
+          <p style="color:var(--text-dim); font-size:0.88rem;">737-700 · 737-800 · MAX 8 all current. MAX 200 check ride pending.</p>
+        </div>
+        <div class="card reveal" style="padding:22px;">
+          <h3 style="font-size:1rem;">Crew Scheduling</h3>
+          <p style="color:var(--text-dim); font-size:0.88rem;">Jumpseat requests, standby, bidding, and reserve assignments live here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><span class="tail">✈</span> Flair Virtual</div>
+        <p>An independent flight simulation community flying routes inspired by Flair Airlines' real-world network.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Discord">◈</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+      <div>
+        <h4>Fly</h4>
+        <a href="fleet.html">Fleet</a>
+        <a href="routes.html">Route Network</a>
+        <a href="ranks-awards.html">Ranks &amp; Awards</a>
+        <a href="portal.html">Flight Booking</a>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <a href="community.html">Events Calendar</a>
+        <a href="community.html">Leaderboards</a>
+        <a href="community.html">Screenshot Gallery</a>
+        <a href="community.html">Staff Directory</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="about.html">About Flair Virtual</a>
+        <a href="portal.html">Pilot Portal</a>
+        <a href="#">Knowledge Base</a>
+        <a href="#">Contact / Tickets</a>
+      </div>
+    </div>
+    <p class="footer-disclaimer">
+      <strong>Disclaimer:</strong> This is an independent virtual airline created exclusively for flight simulation and
+      entertainment purposes. It is not affiliated with, endorsed by, operated by, or representative of Flair Airlines'
+      commercial operations. Any Flair Airlines branding, logos, trademarks, or other intellectual property displayed on
+      this website are used only with authorization from their respective owner where applicable. All trademarks and
+      intellectual property remain the property of their respective owners.
+    </p>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> Flair Virtual. Not for real-world flight operations.</span>
+      <span>Built for VATSIM &amp; IVAO</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+(function () {
+  var tabs = document.querySelectorAll(".auth-tab");
+  tabs.forEach(function (t) {
+    t.addEventListener("click", function () {
+      tabs.forEach(function (b) { b.classList.remove("active"); });
+      t.classList.add("active");
+      var isLogin = t.getAttribute("data-auth") === "login";
+      document.getElementById("login-form").style.display = isLogin ? "block" : "none";
+      document.getElementById("register-form").style.display = isLogin ? "none" : "block";
+    });
+  });
+})();
+</script>
+</body>
+</html>

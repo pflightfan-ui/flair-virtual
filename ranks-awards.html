@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ranks &amp; Awards — Flair Virtual</title>
+<meta name="description" content="Flair Virtual rank structure and pilot awards — progression from Cadet to Chief Pilot, plus achievement badges earned across the network.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@700;800&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .rank-track { position: relative; padding-left: 28px; }
+  .rank-track::before {
+    content: "";
+    position: absolute; left: 9px; top: 8px; bottom: 8px;
+    width: 2px; background: var(--line);
+  }
+  .rank-step { position: relative; padding-bottom: 36px; }
+  .rank-step:last-child { padding-bottom: 0; }
+  .rank-step::before {
+    content: "";
+    position: absolute; left: -28px; top: 4px;
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--marigold); border: 3px solid var(--paper);
+    box-shadow: 0 0 0 2px var(--line);
+  }
+  .award-badge {
+    width: 56px; height: 56px; border-radius: 14px;
+    background: linear-gradient(145deg, var(--marigold), var(--marigold-deep));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; flex-shrink: 0;
+    box-shadow: 0 6px 16px rgba(255,199,44,0.3);
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">
+      <span class="tail">✈</span>
+      <span>Flair Virtual<br><small>Virtual Airline Community</small></span>
+    </a>
+    <nav class="nav-links" data-nav-links>
+      <a href="../index.html">Home</a>
+      <a href="fleet.html">Fleet</a>
+      <a href="routes.html">Route Network</a>
+      <a href="ranks-awards.html">Ranks &amp; Awards</a>
+      <a href="community.html">Community</a>
+      <a href="portal.html">Pilot Portal</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Toggle dark mode"></button>
+      <a href="portal.html" class="btn btn-outline btn-sm hide-mobile">Log In</a>
+      <a href="portal.html" class="btn btn-primary btn-sm">Join Flair Virtual</a>
+      <button class="nav-burger" data-nav-burger aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Progression</span>
+      <h1>Ranks &amp; Awards</h1>
+      <p>Every hour logged and every flight completed moves you up the ladder. Progression is based on flight hours, completed flights, check rides, event participation, and training milestones — not just time in the seat.</p>
+    </div>
+  </section>
+
+  <!-- RANK STRUCTURE -->
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Rank Structure</span>
+        <h2>Seven ranks, one clear path</h2>
+      </div>
+      <div class="rank-track reveal">
+        <div class="rank-step">
+          <div class="card" style="padding:20px 24px;">
+            <div class="flex-between" style="flex-wrap:wrap;">
+              <div>
+                <span class="mono" style="color:var(--text-faint); font-size:0.78rem;">RANK 01</span>
+                <h3 style="font-size:1.2rem; margin-top:2px;">Cadet</h3>
+              </div>
+              <span class="pill pill-green">Entry Rank</span>
+            </div>
+            <p style="color:var(--text-dim); font-size:0.9rem; margin:10px 0 0;">Starting rank for all new hires. Complete initial training modules and your first logged flight.</p>
+          </div>
+        </div>
+        <div class="rank-step">
+          <div class="card" style="padding:20px 24px;">
+            <div class="flex-between" style="flex-wrap:wrap;">
+              <div>
+                <span class="mono" style="color:var(--text-faint); font-size:0.78rem;">RANK 02 · 25 HRS</span>
+                <h3 style="font-size:1.2rem; margin-top:2px;">First Officer</h3>
+              </div>
+            </div>
+            <p style="color:var(--text-dim); font-size:0.9rem; margin:10px 0 0;">25 flight hours and 10 completed flights. Full route network access unlocked.</p>
+          </div>
+        </div>
+        <div class="rank-step">
+          <div class="card" style="padding:20px 24px;">
+            <div>
+              <span class="mono" style="color:var(--text-faint); font-size:0.78rem;">RANK 03 · 100 HRS</span>
+              <h3 style="font-size:1.2rem; margin-top:2px;">Senior First Officer</h3>
+            </div>
+            <p style="color:var(--text-dim); font-size:0.9rem; margin:10px 0 0;">100 flight hours, 40 completed flights, and one passed check ride.</p>
+          </div>
+        </div>
+        <div class="rank-step">
+          <div class="card" style="padding:20px 24px;">
+            <div>
+              <span class="mono" style="color:var(--text-faint); font-size:0.78rem;">RANK 04 · 300 HRS</span>
+              <h3 style="font-size:1.2rem; margin-top:2px;">Captain</h3>
+            </div>
+            <p style="color:var(--text-dim); font-size:0.9rem; margin:10px 0 0;">300 flight hours, command check ride passed, eligible for MAX 8 long-haul routes.</p>
+          </div>
+        </div>
+        <div class="rank-step">
+          <div class="card" style="padding:20px 24px;">
+            <div>
+              <span class="mono" style="color:var(--text-faint); font-size:0.78rem;">RANK 05 · 700 HRS</span>
+              <h3 style="font-size:1.2rem; margin-top:2px;">Senior Captain</h3>
+            </div>
+            <p style="color:var(--text-dim); font-size:0.9rem; margin:10px 0 0;">700 flight hours plus participation in at least 5 official group events.</p>
+          </div>
+        </div>
+        <div class="rank-step">
+          <div class="card" style="padding:20px 24px;">
+            <div>
+              <span class="mono" style="color:var(--text-faint); font-size:0.78rem;">RANK 06 · 1,200 HRS</span>
+              <h3 style="font-size:1.2rem; margin-top:2px;">Training Captain</h3>
+            </div>
+            <p style="color:var(--text-dim); font-size:0.9rem; margin:10px 0 0;">1,200 flight hours and completion of the instructor training milestone. Eligible to mentor new hires.</p>
+          </div>
+        </div>
+        <div class="rank-step">
+          <div class="card" style="padding:20px 24px; border:2px solid var(--marigold);">
+            <div>
+              <span class="mono" style="color:var(--text-faint); font-size:0.78rem;">RANK 07 · BY INVITATION</span>
+              <h3 style="font-size:1.2rem; margin-top:2px;">Chief Pilot</h3>
+            </div>
+            <p style="color:var(--text-dim); font-size:0.9rem; margin:10px 0 0;">Senior staff rank awarded for sustained leadership across training, events, and operations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section style="background:var(--paper-dim);">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Achievements</span>
+        <h2>Awards &amp; badges</h2>
+        <p>Earned automatically as ACARS logs your flights — check your profile's Awards tab to see progress toward the next one.</p>
+      </div>
+      <div class="grid grid-2">
+        <div class="card reveal flex gap-12" style="padding:20px;">
+          <div class="award-badge">🛫</div>
+          <div><h3 style="font-size:1.05rem;">First Flight</h3><p style="color:var(--text-dim); font-size:0.88rem; margin:0;">Awarded for completing your first logged flight with Flair Virtual.</p></div>
+        </div>
+        <div class="card reveal flex gap-12" style="padding:20px;">
+          <div class="award-badge">⏱</div>
+          <div><h3 style="font-size:1.05rem;">100 Hours</h3><p style="color:var(--text-dim); font-size:0.88rem; margin:0;">100 flight hours logged across any aircraft in the fleet.</p></div>
+        </div>
+        <div class="card reveal flex gap-12" style="padding:20px;">
+          <div class="award-badge">🏆</div>
+          <div><h3 style="font-size:1.05rem;">500 Hours</h3><p style="color:var(--text-dim); font-size:0.88rem; margin:0;">A major milestone — 500 flight hours logged network-wide.</p></div>
+        </div>
+        <div class="card reveal flex gap-12" style="padding:20px;">
+          <div class="award-badge">🌊</div>
+          <div><h3 style="font-size:1.05rem;">Long Haul Award</h3><p style="color:var(--text-dim); font-size:0.88rem; margin:0;">Completed a single sector over 2,000 nautical miles.</p></div>
+        </div>
+        <div class="card reveal flex gap-12" style="padding:20px;">
+          <div class="award-badge">🎯</div>
+          <div><h3 style="font-size:1.05rem;">Perfect Landing</h3><p style="color:var(--text-dim); font-size:0.88rem; margin:0;">Landed within 100 ft/min descent rate as logged by ACARS.</p></div>
+        </div>
+        <div class="card reveal flex gap-12" style="padding:20px;">
+          <div class="award-badge">📍</div>
+          <div><h3 style="font-size:1.05rem;">Airport of the Month Challenge</h3><p style="color:var(--text-dim); font-size:0.88rem; margin:0;">Completed the featured airport's monthly pilot challenge.</p></div>
+        </div>
+        <div class="card reveal flex gap-12" style="padding:20px;">
+          <div class="award-badge">🎉</div>
+          <div><h3 style="font-size:1.05rem;">Event Participation</h3><p style="color:var(--text-dim); font-size:0.88rem; margin:0;">Flew in an official Flair Virtual group event or fly-in.</p></div>
+        </div>
+        <div class="card reveal flex gap-12" style="padding:20px;">
+          <div class="award-badge">🎂</div>
+          <div><h3 style="font-size:1.05rem;">Anniversary Award</h3><p style="color:var(--text-dim); font-size:0.88rem; margin:0;">Awarded each year you remain an active member of the roster.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><span class="tail">✈</span> Flair Virtual</div>
+        <p>An independent flight simulation community flying routes inspired by Flair Airlines' real-world network.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Discord">◈</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+      <div>
+        <h4>Fly</h4>
+        <a href="fleet.html">Fleet</a>
+        <a href="routes.html">Route Network</a>
+        <a href="ranks-awards.html">Ranks &amp; Awards</a>
+        <a href="portal.html">Flight Booking</a>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <a href="community.html">Events Calendar</a>
+        <a href="community.html">Leaderboards</a>
+        <a href="community.html">Screenshot Gallery</a>
+        <a href="community.html">Staff Directory</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="about.html">About Flair Virtual</a>
+        <a href="portal.html">Pilot Portal</a>
+        <a href="#">Knowledge Base</a>
+        <a href="#">Contact / Tickets</a>
+      </div>
+    </div>
+    <p class="footer-disclaimer">
+      <strong>Disclaimer:</strong> This is an independent virtual airline created exclusively for flight simulation and
+      entertainment purposes. It is not affiliated with, endorsed by, operated by, or representative of Flair Airlines'
+      commercial operations. Any Flair Airlines branding, logos, trademarks, or other intellectual property displayed on
+      this website are used only with authorization from their respective owner where applicable. All trademarks and
+      intellectual property remain the property of their respective owners.
+    </p>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> Flair Virtual. Not for real-world flight operations.</span>
+      <span>Built for VATSIM &amp; IVAO</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

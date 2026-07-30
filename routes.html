@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Route Network — Flair Virtual</title>
+<meta name="description" content="Explore the Flair Virtual route network: search and filter routes by airport, aircraft, distance, and frequency.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@700;800&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  #route-map-placeholder {
+    position: relative;
+    height: 420px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: linear-gradient(160deg, #0b0b0c, #1c2b28);
+  }
+  #route-map-placeholder svg { width: 100%; height: 100%; }
+  #route-map-placeholder .node { fill: var(--marigold); }
+  #route-map-placeholder .path { stroke: rgba(255,199,44,0.35); stroke-width: 1.4; fill: none; }
+  .filter-bar {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 18px;
+    margin-bottom: 24px;
+  }
+  .filter-bar .tag-input { flex: 1; min-width: 160px; }
+  .route-badge {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 6px;
+    background: var(--paper-dim);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">
+      <span class="tail">✈</span>
+      <span>Flair Virtual<br><small>Virtual Airline Community</small></span>
+    </a>
+    <nav class="nav-links" data-nav-links>
+      <a href="../index.html">Home</a>
+      <a href="fleet.html">Fleet</a>
+      <a href="routes.html">Route Network</a>
+      <a href="ranks-awards.html">Ranks &amp; Awards</a>
+      <a href="community.html">Community</a>
+      <a href="portal.html">Pilot Portal</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Toggle dark mode"></button>
+      <a href="portal.html" class="btn btn-outline btn-sm hide-mobile">Log In</a>
+      <a href="portal.html" class="btn btn-primary btn-sm">Join Flair Virtual</a>
+      <button class="nav-burger" data-nav-burger aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Where we fly</span>
+      <h1>Route Network</h1>
+      <p>Search the full Flair Virtual schedule — filter by airport or aircraft type, and check distance, block time, and frequency before you bid.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container">
+      <div id="route-map-placeholder" class="reveal" role="img" aria-label="Stylized map of the Flair Virtual route network across North America">
+        <svg viewBox="0 0 800 420" preserveAspectRatio="xMidYMid meet">
+          <!-- stylized route lines -->
+          <path class="path" d="M120,300 C220,220 300,180 400,190" />
+          <path class="path" d="M400,190 C480,170 560,140 640,120" />
+          <path class="path" d="M120,300 C260,290 340,270 400,190" />
+          <path class="path" d="M400,190 C420,240 440,290 470,340" />
+          <path class="path" d="M400,190 C340,250 300,300 250,350" />
+          <path class="path" d="M400,190 C440,150 480,110 560,90" />
+          <path class="path" d="M120,300 C180,260 240,240 300,235" />
+          <circle class="node" cx="120" cy="300" r="5"></circle>
+          <circle class="node" cx="400" cy="190" r="7"></circle>
+          <circle class="node" cx="640" cy="120" r="5"></circle>
+          <circle class="node" cx="470" cy="340" r="5"></circle>
+          <circle class="node" cx="250" cy="350" r="5"></circle>
+          <circle class="node" cx="560" cy="90" r="5"></circle>
+          <circle class="node" cx="300" cy="235" r="4"></circle>
+          <text x="400" y="175" fill="#F7F6F2" font-family="IBM Plex Mono, monospace" font-size="13" text-anchor="middle">YYC HUB</text>
+        </svg>
+      </div>
+      <p class="mono" style="text-align:center; color:var(--text-faint); font-size:0.8rem; margin-top:12px;">Stylized network diagram — full interactive zoom/pan map renders here in production.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:24px;">
+    <div class="container">
+      <div class="card filter-bar reveal">
+        <input type="text" class="tag-input" id="search-route" placeholder="Search by airport code or city (e.g. YYC, Toronto)">
+        <select class="tag-input" id="filter-aircraft">
+          <option value="">All Aircraft</option>
+          <option value="737-700">737-700</option>
+          <option value="737-800">737-800</option>
+          <option value="737 MAX 8">737 MAX 8</option>
+          <option value="737 MAX 200">737 MAX 200</option>
+        </select>
+        <select class="tag-input" id="filter-sort">
+          <option value="popularity">Sort: Popularity</option>
+          <option value="distance-asc">Sort: Distance (short–long)</option>
+          <option value="distance-desc">Sort: Distance (long–short)</option>
+          <option value="frequency">Sort: Frequency (weekly)</option>
+        </select>
+      </div>
+
+      <div class="card table-wrap reveal">
+        <table class="data" id="route-table">
+          <thead>
+            <tr>
+              <th>Route</th>
+              <th>Aircraft</th>
+              <th>Distance</th>
+              <th>Block Time</th>
+              <th>Weekly Freq.</th>
+              <th>Popularity</th>
+            </tr>
+          </thead>
+          <tbody id="route-tbody"><!-- populated by JS --></tbody>
+        </table>
+      </div>
+      <p id="no-results" style="display:none; text-align:center; color:var(--text-dim); padding:32px 0;">No routes match your search. Try a different airport or aircraft.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><span class="tail">✈</span> Flair Virtual</div>
+        <p>An independent flight simulation community flying routes inspired by Flair Airlines' real-world network.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Discord">◈</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+      <div>
+        <h4>Fly</h4>
+        <a href="fleet.html">Fleet</a>
+        <a href="routes.html">Route Network</a>
+        <a href="ranks-awards.html">Ranks &amp; Awards</a>
+        <a href="portal.html">Flight Booking</a>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <a href="community.html">Events Calendar</a>
+        <a href="community.html">Leaderboards</a>
+        <a href="community.html">Screenshot Gallery</a>
+        <a href="community.html">Staff Directory</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="about.html">About Flair Virtual</a>
+        <a href="portal.html">Pilot Portal</a>
+        <a href="#">Knowledge Base</a>
+        <a href="#">Contact / Tickets</a>
+      </div>
+    </div>
+    <p class="footer-disclaimer">
+      <strong>Disclaimer:</strong> This is an independent virtual airline created exclusively for flight simulation and
+      entertainment purposes. It is not affiliated with, endorsed by, operated by, or representative of Flair Airlines'
+      commercial operations. Any Flair Airlines branding, logos, trademarks, or other intellectual property displayed on
+      this website are used only with authorization from their respective owner where applicable. All trademarks and
+      intellectual property remain the property of their respective owners.
+    </p>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> Flair Virtual. Not for real-world flight operations.</span>
+      <span>Built for VATSIM &amp; IVAO</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+(function () {
+  var routes = [
+    { from: "YYC", to: "YYZ", city: "Calgary → Toronto", aircraft: "737-800", distance: 1690, block: "3h 25m", freq: 14, popularity: 96 },
+    { from: "YYC", to: "YEG", city: "Calgary → Edmonton", aircraft: "737-700", distance: 172, block: "0h 45m", freq: 21, popularity: 88 },
+    { from: "YYC", to: "YLW", city: "Calgary → Kelowna", aircraft: "737-700", distance: 250, block: "0h 55m", freq: 18, popularity: 91 },
+    { from: "YYC", to: "LAS", city: "Calgary → Las Vegas", aircraft: "737 MAX 8", distance: 1035, block: "2h 20m", freq: 7, popularity: 84 },
+    { from: "YYC", to: "YWG", city: "Calgary → Winnipeg", aircraft: "737-800", distance: 830, block: "1h 55m", freq: 10, popularity: 72 },
+    { from: "YYC", to: "YVR", city: "Calgary → Vancouver", aircraft: "737-700", distance: 420, block: "1h 10m", freq: 16, popularity: 93 },
+    { from: "YYC", to: "PVR", city: "Calgary → Puerto Vallarta", aircraft: "737 MAX 8", distance: 2145, block: "4h 40m", freq: 4, popularity: 79 },
+    { from: "YYC", to: "CUN", city: "Calgary → Cancun", aircraft: "737 MAX 8", distance: 2560, block: "5h 20m", freq: 3, popularity: 74 },
+    { from: "YEG", to: "YYZ", city: "Edmonton → Toronto", aircraft: "737-800", distance: 1785, block: "3h 35m", freq: 9, popularity: 68 },
+    { from: "YYZ", to: "YHZ", city: "Toronto → Halifax", aircraft: "737 MAX 200", distance: 810, block: "1h 50m", freq: 12, popularity: 65 },
+    { from: "YWG", to: "YYZ", city: "Winnipeg → Toronto", aircraft: "737-800", distance: 1230, block: "2h 40m", freq: 8, popularity: 60 },
+    { from: "YVR", to: "LAS", city: "Vancouver → Las Vegas", aircraft: "737 MAX 8", distance: 1080, block: "2h 25m", freq: 6, popularity: 77 }
+  ];
+
+  var tbody = document.getElementById("route-tbody");
+  var noResults = document.getElementById("no-results");
+  var searchInput = document.getElementById("search-route");
+  var aircraftFilter = document.getElementById("filter-aircraft");
+  var sortSelect = document.getElementById("filter-sort");
+
+  function render() {
+    var q = searchInput.value.trim().toLowerCase();
+    var ac = aircraftFilter.value;
+    var sort = sortSelect.value;
+
+    var filtered = routes.filter(function (r) {
+      var matchesQ = !q || r.from.toLowerCase().includes(q) || r.to.toLowerCase().includes(q) || r.city.toLowerCase().includes(q);
+      var matchesAc = !ac || r.aircraft === ac;
+      return matchesQ && matchesAc;
+    });
+
+    filtered.sort(function (a, b) {
+      if (sort === "distance-asc") return a.distance - b.distance;
+      if (sort === "distance-desc") return b.distance - a.distance;
+      if (sort === "frequency") return b.freq - a.freq;
+      return b.popularity - a.popularity;
+    });
+
+    tbody.innerHTML = "";
+    filtered.forEach(function (r) {
+      var tr = document.createElement("tr");
+      tr.innerHTML =
+        '<td><span class="route-badge">' + r.from + "</span> → <span class=\"route-badge\">" + r.to + "</span><br><span style=\"color:var(--text-dim); font-size:0.85rem;\">" + r.city + "</span></td>" +
+        "<td>" + r.aircraft + "</td>" +
+        '<td class="mono">' + r.distance.toLocaleString() + " nm</td>" +
+        '<td class="mono">' + r.block + "</td>" +
+        '<td class="mono">' + r.freq + "x</td>" +
+        '<td><div style="background:var(--paper-dim); border-radius:6px; height:8px; width:100px; overflow:hidden;"><div style="height:100%; width:' + r.popularity + '%; background:var(--marigold);"></div></div></td>';
+      tbody.appendChild(tr);
+    });
+
+    noResults.style.display = filtered.length ? "none" : "block";
+  }
+
+  searchInput.addEventListener("input", render);
+  aircraftFilter.addEventListener("change", render);
+  sortSelect.addEventListener("change", render);
+  render();
+})();
+</script>
+</body>
+</html>

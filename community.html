@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community — Flair Virtual</title>
+<meta name="description" content="Flair Virtual community hub: events calendar, leaderboards, screenshot gallery, monthly challenges, and staff directory.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@700;800&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .tabs { display: flex; gap: 6px; border-bottom: 1px solid var(--line); margin-bottom: 32px; flex-wrap: wrap; }
+  .tab-btn {
+    padding: 12px 18px; font-weight: 700; font-size: 0.92rem;
+    color: var(--text-dim); border-bottom: 2px solid transparent;
+    cursor: pointer; background: none; border-top: none; border-left: none; border-right: none;
+  }
+  .tab-btn.active { color: var(--ink-soft); border-bottom-color: var(--marigold); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 768px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+  .leaderboard-row { display: grid; grid-template-columns: 40px 1fr 100px; gap: 12px; align-items: center; padding: 14px 16px; border-bottom: 1px solid var(--line-soft); }
+  .rank-medal { font-weight: 800; font-family: 'IBM Plex Mono', monospace; color: var(--text-faint); }
+  .staff-card { display: flex; gap: 14px; align-items: center; padding: 18px; }
+  .staff-avatar { width: 52px; height: 52px; border-radius: 50%; background: var(--paper-dim); display:flex; align-items:center; justify-content:center; font-weight:800; color: var(--runway); flex-shrink:0; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">
+      <span class="tail">✈</span>
+      <span>Flair Virtual<br><small>Virtual Airline Community</small></span>
+    </a>
+    <nav class="nav-links" data-nav-links>
+      <a href="../index.html">Home</a>
+      <a href="fleet.html">Fleet</a>
+      <a href="routes.html">Route Network</a>
+      <a href="ranks-awards.html">Ranks &amp; Awards</a>
+      <a href="community.html">Community</a>
+      <a href="portal.html">Pilot Portal</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Toggle dark mode"></button>
+      <a href="portal.html" class="btn btn-outline btn-sm hide-mobile">Log In</a>
+      <a href="portal.html" class="btn btn-primary btn-sm">Join Flair Virtual</a>
+      <button class="nav-burger" data-nav-burger aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">The crew room</span>
+      <h1>Community</h1>
+      <p>Events, leaderboards, screenshots, and the people who keep the network running. This is where Flair Virtual actually happens.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="tabs reveal" role="tablist">
+        <button class="tab-btn active" data-tab="events" role="tab">Events</button>
+        <button class="tab-btn" data-tab="leaderboard" role="tab">Leaderboards</button>
+        <button class="tab-btn" data-tab="gallery" role="tab">Gallery</button>
+        <button class="tab-btn" data-tab="challenge" role="tab">Monthly Challenge</button>
+        <button class="tab-btn" data-tab="staff" role="tab">Staff Directory</button>
+      </div>
+
+      <!-- EVENTS -->
+      <div class="tab-panel active" id="panel-events">
+        <div class="card" style="padding:8px;">
+          <div class="flex-between" style="padding:18px; border-bottom:1px solid var(--line-soft); flex-wrap:wrap; gap:10px;">
+            <div>
+              <div style="font-weight:700;">Friday Night Rush — YYC to YEG</div>
+              <div class="mono" style="font-size:0.8rem; color:var(--text-faint);">AUG 1, 2026 · 18:00 MDT · Live ATC on VATSIM</div>
+            </div>
+            <div class="flex gap-8"><span class="pill pill-green">Group Flight</span><a href="#" class="btn btn-outline btn-sm">Sign Up</a></div>
+          </div>
+          <div class="flex-between" style="padding:18px; border-bottom:1px solid var(--line-soft); flex-wrap:wrap; gap:10px;">
+            <div>
+              <div style="font-weight:700;">Cross-Canada Fun Run</div>
+              <div class="mono" style="font-size:0.8rem; color:var(--text-faint);">AUG 9, 2026 · 15:00 MDT · Casual, all ranks</div>
+            </div>
+            <div class="flex gap-8"><span class="pill pill-yellow">Challenge</span><a href="#" class="btn btn-outline btn-sm">Sign Up</a></div>
+          </div>
+          <div class="flex-between" style="padding:18px; border-bottom:1px solid var(--line-soft); flex-wrap:wrap; gap:10px;">
+            <div>
+              <div style="font-weight:700;">New Pilot Orientation Livestream</div>
+              <div class="mono" style="font-size:0.8rem; color:var(--text-faint);">AUG 14, 2026 · 19:00 MDT · Discord Stage</div>
+            </div>
+            <div class="flex gap-8"><span class="pill pill-green">Training</span><a href="#" class="btn btn-outline btn-sm">Sign Up</a></div>
+          </div>
+          <div class="flex-between" style="padding:18px; flex-wrap:wrap; gap:10px;">
+            <div>
+              <div style="font-weight:700;">Sun Route Fly-In: YYC–PVR</div>
+              <div class="mono" style="font-size:0.8rem; color:var(--text-faint);">AUG 22, 2026 · 17:30 MDT · MAX 8 only</div>
+            </div>
+            <div class="flex gap-8"><span class="pill pill-yellow">Group Flight</span><a href="#" class="btn btn-outline btn-sm">Sign Up</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEADERBOARDS -->
+      <div class="tab-panel" id="panel-leaderboard">
+        <div class="grid grid-2">
+          <div class="card">
+            <h3 style="padding:18px 18px 0;">Top Hours — July</h3>
+            <div class="leaderboard-row"><span class="rank-medal">01</span><span>J. Alderman</span><span class="mono">142.3 hrs</span></div>
+            <div class="leaderboard-row"><span class="rank-medal">02</span><span>R. Osei</span><span class="mono">128.9 hrs</span></div>
+            <div class="leaderboard-row"><span class="rank-medal">03</span><span>M. Villareal</span><span class="mono">119.4 hrs</span></div>
+            <div class="leaderboard-row"><span class="rank-medal">04</span><span>C. Nakamura</span><span class="mono">104.7 hrs</span></div>
+            <div class="leaderboard-row"><span class="rank-medal">05</span><span>S. Whitfield</span><span class="mono">98.2 hrs</span></div>
+          </div>
+          <div class="card">
+            <h3 style="padding:18px 18px 0;">Most Flights — July</h3>
+            <div class="leaderboard-row"><span class="rank-medal">01</span><span>D. Prakash</span><span class="mono">38 flights</span></div>
+            <div class="leaderboard-row"><span class="rank-medal">02</span><span>J. Alderman</span><span class="mono">35 flights</span></div>
+            <div class="leaderboard-row"><span class="rank-medal">03</span><span>A. Fontaine</span><span class="mono">31 flights</span></div>
+            <div class="leaderboard-row"><span class="rank-medal">04</span><span>R. Osei</span><span class="mono">29 flights</span></div>
+            <div class="leaderboard-row"><span class="rank-medal">05</span><span>L. Bergstrom</span><span class="mono">27 flights</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GALLERY -->
+      <div class="tab-panel" id="panel-gallery">
+        <div class="gallery-grid">
+          <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=800&auto=format&fit=crop" alt="Aircraft on final approach at sunset" style="border-radius:12px; height:180px; object-fit:cover;">
+          <img src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?q=80&w=800&auto=format&fit=crop" alt="Aircraft taxiing at dusk" style="border-radius:12px; height:180px; object-fit:cover;">
+          <img src="https://images.unsplash.com/photo-1583531352515-8884af319dc1?q=80&w=800&auto=format&fit=crop" alt="Mountain valley approach" style="border-radius:12px; height:180px; object-fit:cover;">
+          <img src="https://images.unsplash.com/photo-1521727857535-28d2047d3b9d?q=80&w=800&auto=format&fit=crop" alt="Airport terminal interior" style="border-radius:12px; height:180px; object-fit:cover;">
+          <img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?q=80&w=800&auto=format&fit=crop" alt="Boeing 737 in flight over clouds" style="border-radius:12px; height:180px; object-fit:cover;">
+          <img src="https://images.unsplash.com/photo-1605833556294-ea5c7a74f57d?q=80&w=800&auto=format&fit=crop" alt="City skyline at night" style="border-radius:12px; height:180px; object-fit:cover;">
+        </div>
+        <p style="text-align:center; margin-top:20px;"><a href="#" class="btn btn-outline btn-sm">Submit a Screenshot</a></p>
+      </div>
+
+      <!-- MONTHLY CHALLENGE -->
+      <div class="tab-panel" id="panel-challenge">
+        <div class="card" style="padding:32px; display:grid; grid-template-columns:1fr 1fr; gap:32px;">
+          <div>
+            <span class="pill pill-yellow">August Challenge</span>
+            <h3 style="margin-top:14px;">The Okanagan Circuit</h3>
+            <p style="color:var(--text-dim);">Fly YYC–YLW–YVR–YYC in a single week to earn the Airport of the Month badge and a shot at the leaderboard.</p>
+            <ul style="color:var(--text-dim); font-size:0.9rem; padding-left:18px;">
+              <li>Any aircraft type eligible</li>
+              <li>Must be flown as three separate logged legs</li>
+              <li>Badge awarded automatically via ACARS</li>
+            </ul>
+          </div>
+          <div class="card" style="background:var(--paper-dim); padding:20px; box-shadow:none;">
+            <div style="font-weight:700; margin-bottom:10px;">This month's participants</div>
+            <div class="mono" style="font-size:0.85rem; color:var(--text-dim);">312 pilots have logged at least one leg · 94 have completed the full circuit</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STAFF -->
+      <div class="tab-panel" id="panel-staff">
+        <div class="grid grid-3">
+          <div class="card staff-card"><div class="staff-avatar">CP</div><div><div style="font-weight:700;">Chief Pilot</div><div class="mono" style="font-size:0.8rem; color:var(--text-faint);">Operations Lead</div></div></div>
+          <div class="card staff-card"><div class="staff-avatar">TC</div><div><div style="font-weight:700;">Training Captain</div><div class="mono" style="font-size:0.8rem; color:var(--text-faint);">Onboarding &amp; Checkrides</div></div></div>
+          <div class="card staff-card"><div class="staff-avatar">EV</div><div><div style="font-weight:700;">Events Coordinator</div><div class="mono" style="font-size:0.8rem; color:var(--text-faint);">Group Flights</div></div></div>
+          <div class="card staff-card"><div class="staff-avatar">FM</div><div><div style="font-weight:700;">Fleet Manager</div><div class="mono" style="font-size:0.8rem; color:var(--text-faint);">Aircraft &amp; Liveries</div></div></div>
+          <div class="card staff-card"><div class="staff-avatar">RM</div><div><div style="font-weight:700;">Route Manager</div><div class="mono" style="font-size:0.8rem; color:var(--text-faint);">Schedule &amp; Network</div></div></div>
+          <div class="card staff-card"><div class="staff-avatar">CM</div><div><div style="font-weight:700;">Community Manager</div><div class="mono" style="font-size:0.8rem; color:var(--text-faint);">Discord &amp; Support</div></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><span class="tail">✈</span> Flair Virtual</div>
+        <p>An independent flight simulation community flying routes inspired by Flair Airlines' real-world network.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Discord">◈</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+      <div>
+        <h4>Fly</h4>
+        <a href="fleet.html">Fleet</a>
+        <a href="routes.html">Route Network</a>
+        <a href="ranks-awards.html">Ranks &amp; Awards</a>
+        <a href="portal.html">Flight Booking</a>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <a href="community.html">Events Calendar</a>
+        <a href="community.html">Leaderboards</a>
+        <a href="community.html">Screenshot Gallery</a>
+        <a href="community.html">Staff Directory</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="about.html">About Flair Virtual</a>
+        <a href="portal.html">Pilot Portal</a>
+        <a href="#">Knowledge Base</a>
+        <a href="#">Contact / Tickets</a>
+      </div>
+    </div>
+    <p class="footer-disclaimer">
+      <strong>Disclaimer:</strong> This is an independent virtual airline created exclusively for flight simulation and
+      entertainment purposes. It is not affiliated with, endorsed by, operated by, or representative of Flair Airlines'
+      commercial operations. Any Flair Airlines branding, logos, trademarks, or other intellectual property displayed on
+      this website are used only with authorization from their respective owner where applicable. All trademarks and
+      intellectual property remain the property of their respective owners.
+    </p>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> Flair Virtual. Not for real-world flight operations.</span>
+      <span>Built for VATSIM &amp; IVAO</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+(function () {
+  var tabs = document.querySelectorAll(".tab-btn");
+  tabs.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      tabs.forEach(function (b) { b.classList.remove("active"); });
+      document.querySelectorAll(".tab-panel").forEach(function (p) { p.classList.remove("active"); });
+      btn.classList.add("active");
+      document.getElementById("panel-" + btn.getAttribute("data-tab")).classList.add("active");
+    });
+  });
+})();
+</script>
+</body>
+</html>
